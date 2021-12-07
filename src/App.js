@@ -5,11 +5,11 @@ import {
   Route,
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
-import { PetsHomePage } from './components/pages/PetsHomePage';
+import { CarsHomePage } from './components/pages/CarsHomePage';
 import { ShoppingCartPage } from './components/pages/ShoppingCartPage';
-import {PetDetailsPage} from './components/pages/PetDetailsPage';
+import {CarDetailsPage} from './components/pages/CarDetailsPage';
 import {LoginPage} from './components/pages/LoginPage';
-import { NewPetPage } from './components/pages/NewPetPage';
+import { NewCarPage } from './components/pages/NewCarPage';
 
 function App() {
   return (
@@ -17,19 +17,19 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <PetsHomePage />
+          <CarsHomePage />
         </Route>
         <Route path="/cart">
-           <ShoppingCartPage />
+          <ShoppingCartPage />
         </Route>
-        <Route path="/pet/:id">
-          <PetDetailsPage />
+        <Route path="/pet/:year">
+          <CarDetailsPage />
         </Route>
         <Route path="/login">
           <LoginPage/>
         </Route>
         <Route path="/new">
-          <NewPetPage/>
+          <NewCarPage/>
         </Route>
       </Switch>
     </Router>

@@ -1,13 +1,13 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from 'react';
-import {PetItem} from '../../PetItem';
+import {PetItem} from '../../CarItem';
 import PetsOrderContext from "../../../context/petsOrderContext";
 import { Search } from '../../Search';
 
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 import {useHistory} from 'react-router-dom';
 
-export const PetsHomePage = () => {
+export const CarsHomePage = () => {
 
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
@@ -59,7 +59,7 @@ export const PetsHomePage = () => {
 
   const getPets = async() => {
     try {
-      const response = await fetch('https://firestore.googleapis.com/v1/projects/it-tf-123/databases/(default)/documents/pets/');
+      const response = await fetch('https://firestore.googleapis.com/v1/projects/a3carapp/databases/(default)/documents/cars/');
       const data = await response.json();
       console.log(data);
       const formattedData =data.documents.map((item) => {
@@ -84,13 +84,13 @@ export const PetsHomePage = () => {
 
   return (
     <div className="pets-page">
-      <h1 className="pets-title">All Pets</h1>
+      <h1 className="pets-title">All Cars</h1>
       <Search handleSearchUpdate={handleSearchUpdate}/>
       <div className="pets-container">
         {
           filteredPets.map((pet) => (
-            <PetItem key={pet.id.stringValue} image={pet.image.stringValue} name={pet.name.stringValue} breed={pet.breed.stringValue} age=
-            {pet.age.stringValue} type={pet.petType.stringValue} id={pet.id.stringValue}></PetItem>
+            <PetItem price={pet.price.stringValue} image={pet.image.stringValue} name={pet.name.stringValue} company={pet.company.stringValue} price=
+            {pet.price.stringValue} type={pet.carType.stringValue} year={pet.year.stringValue}></PetItem>
           ))
         }
 

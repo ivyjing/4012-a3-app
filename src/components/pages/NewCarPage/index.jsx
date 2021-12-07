@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import "./styles.css";
 import { useState } from "react";
-export const NewPetPage = () => {
+export const NewCarPage = () => {
 
     const { register, handleSubmit } = useForm();
     const history = useHistory();
@@ -11,25 +11,25 @@ export const NewPetPage = () => {
     const submitPet = async (formVals) => {
         const formattedData = {
             fields: {
-                id: {
-                    stringValue: formVals.id
+                year: {
+                    stringValue: formVals.year
                 },
-                breed: {
-                    stringValue: formVals.breed
+                company: {
+                    stringValue: formVals.company
                 },
-                age: {
-                    stringValue: formVals.age
+                price: {
+                    stringValue: formVals.price
                 },
                 name: {
                     stringValue: formVals.name
                 },
-                petType: {
-                    stringValue: formVals.petType
+                carType: {
+                    stringValue: formVals.carType
                 },
                 image: {
                     stringValue: formVals.image
                 },
-                isAdopted: {
+                isSold: {
                     booleanValue: false
                 },
         }
@@ -37,7 +37,7 @@ export const NewPetPage = () => {
 
     console.log(formVals, formattedData);
     try {
-        const response = await fetch('https://firestore.googleapis.com/v1/projects/it-tf-123/databases/(default)/documents/pets/',
+        const response = await fetch('https://firestore.googleapis.com/v1/projects/a3carapp/databases/(default)/documents/cars/',
         {
             headers: {
                 'Content-Type': 'application/json'
@@ -52,24 +52,24 @@ export const NewPetPage = () => {
     };
 
     return (
-        <div className="pets-page">
+        <div className="cars-page">
             <form className="form-layout" onSubmit={handleSubmit(submitPet)}>
-            <h2>Submit a new pet: </h2>
+            <h2>Submit a new car: </h2>
             <br />
 
-            <label htmlFor="petType"> Pet Type</label>
+            <label htmlFor="carType"> Car description</label>
             <input 
-                {...register("petType")}
-                name="petType"
+                {...register("carType")}
+                name="carType"
                 required
             />
 
 <label htmlFor="name"> Name </label>
             <input {...register("name")} name="name" required type="text"/>
-            <label htmlFor="breed">Breed</label>
+            <label htmlFor="company">Company</label>
             <input
-                {...register("breed")}
-                name="breed"
+                {...register("company")}
+                name="company"
                 required
             />
 
@@ -80,21 +80,21 @@ export const NewPetPage = () => {
                 required
             />
 
-<label htmlFor="age">Age</label>
+<label htmlFor="price">Price</label>
             <input
-                {...register("age")}
-                name="age"
+                {...register("price")}
+                name="price"
                 required
             />
 
-<label htmlFor="id">Unique ID</label>
+<label htmlFor="year">ID</label>
             <input
-                {...register("id")}
-                name="id"
+                {...register("year")}
+                name="year"
                 required
             />
             
-<input type="submit" value="Submit Pet"/>
+<input type="submit" value="Submit Car"/>
 <br />
             </form>
         )

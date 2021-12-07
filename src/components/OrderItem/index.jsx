@@ -2,7 +2,7 @@ import { Button } from "../Button";
 import { useContext } from "react";
 import PetsOrderContext from "../../context/petsOrderContext";
 import './styles.css';
-
+//this function not in use
 export const OrderItem = (props) => {
     const {image, age, name, id} = props;
 
@@ -19,7 +19,7 @@ export const OrderItem = (props) => {
                 <h1 className="order-item-name">{name}</h1>
                 <p className="order-item-age">{age}</p>
             </div>
-            <Button text="Remove Pet" type="secondary" isDisabled={false} action={removePet}/>
+            <Button text="Remove Car" type="secondary" isDisabled={false} action={removePet}/>
         </div>
     )
 }

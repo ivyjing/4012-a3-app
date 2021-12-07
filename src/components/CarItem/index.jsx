@@ -6,33 +6,33 @@ import {useContext} from 'react';
 
 export const PetItem = (props) => {
 
-    const {image, age, name, breed, type, id} = props;
+    const {image, year, name, price, type, company} = props;
 
     const globalState = useContext(PetsOrderContext);
 
     const addPetToCart = () =>{
 
         const pet = {
-            id,
+            year,
             name,
             image,
-            breed,
+            company,
             type,
-            age
+            price
         }
         globalState.addPetToOrder(pet);
         console.log(globalState.order);
-        alert("Pet was added");
+        alert("Car was added");
     }
 
     return (
         <div className="pet">
-            <img className="pet-photo" src={image} alt={name + breed + "photo"} />
-            <Link to= {`/pet/${id}`}><h1 className="pet-name"> { name } </h1></Link>
-            <p className="pet-breed"> { breed } </p>
-            <p className="pet-age"> { age } years old </p>
+            <img className="pet-photo" src={image} alt={name + company + "photo"} />
+            <Link to= {`/pet/${year}`}><h1 className="pet-name"> { name } </h1></Link>
+            <p className="pet-breed"> { company } </p>
+            <p className="pet-age"> { price } $ </p>
 
-            <Button text="Request Pet" type="primary" isDisabled={false} action={addPetToCart} />
+            <Button text="Request Disabled" type="primary" isDisabled={false} action={addPetToCart} />
 
         </div>
     )
