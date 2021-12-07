@@ -47,7 +47,7 @@ export const CarsHomePage = () => {
 
     const petsFiltered = pets.filter(
       (pet) => {
-        const breed = pet.breed.stringValue.toLowerCase();
+        const breed = pet.company.stringValue.toLowerCase();
         const isMatch = breed.indexOf(searchString.trim().toLowerCase());
 
         return isMatch !== -1;

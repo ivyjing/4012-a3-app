@@ -28,7 +28,7 @@ export const PetItem = (props) => {
     return (
         <div className="pet">
             <img className="pet-photo" src={image} alt={name + company + "photo"} />
-            <Link to= {`/pet/${year}`}><h1 className="pet-name"> { name } </h1></Link>
+            <Link to= {`/car/${year}`}><h1 className="pet-name"> { name } </h1></Link>
             <p className="pet-breed"> { company } </p>
             <p className="pet-age"> { price } $ </p>
 

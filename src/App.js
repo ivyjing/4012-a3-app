@@ -22,7 +22,7 @@ function App() {
         <Route path="/cart">
           <ShoppingCartPage />
         </Route>
-        <Route path="/pet/:year">
+        <Route path="/car/:year">
           <CarDetailsPage />
         </Route>
         <Route path="/login">
